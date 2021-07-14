@@ -69,7 +69,7 @@ class Clipboard {
   /// If you call [_loadLib] from an unsupported platform, it throws
   /// PlatformException.
   DynamicLibrary _loadLib() {
-    var libPath = '${Directory.current.path}/lib/';
+    var libPath = '${Directory.current.path}/lib/src/';
 
     if (Platform.isWindows) {
       libPath += 'clipboard.dll';
