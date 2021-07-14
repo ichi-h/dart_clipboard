@@ -7,7 +7,7 @@ library dart_clipboard;
 import 'dart:io';
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
-import 'package:dart_clipboard/src/platform_exception.dart';
+import 'package:dart_clipboard/platform_exception.dart';
 
 typedef RustSetContents = Void Function(Pointer<Utf8>);
 typedef RustGetContents = Pointer<Utf8> Function();
