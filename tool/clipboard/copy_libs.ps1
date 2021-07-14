@@ -1,1 +1,1 @@
-cp ./target/debug/clipboard.dll ../../lib/src/
+cp ./target/debug/clipboard.dll ../../
