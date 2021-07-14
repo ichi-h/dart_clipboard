@@ -76,7 +76,7 @@ class Clipboard {
     } else if (Platform.isMacOS) {
       libPath += 'clipboard.dylib';
     } else if (Platform.isLinux) {
-      libPath += 'clipboard.so';
+      libPath += 'libclipboard.so';
     } else {
       throw PlatformException('${Platform.operatingSystem} is not supported.');
     }
