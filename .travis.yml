@@ -1,30 +1,35 @@
+sudo: false
+language: rust, dart
+
+rust: stable
+dart: stable
+
 branches:
   only:
     - master
 
 matrix:
   include:
-    - language: dart
-      dart:
-        - stable
-      os:
-        - windows
-        - osx
-        - linux
-      script: 
-        - dart pub get
-        - dart test
-        - dart analyze
-
-    - language: rust
-      rust: 
-        - stable
-      os:
-        - windows
-        - osx
-        - linux
+    - os: windows
       before_script:
         - cd ./tool/clipboard/
-      script:
-        - cargo test
-        - cargo check
+      script: |
+        cargo test
+        cargo build
+        pwsh ./copy_libs.ps1
+        cd ../..
+        dart pub get
+        dart test
+
+    - os:
+      - linux
+      - osx
+      before_script:
+        - cd ./tool/clipboard/
+      script: |
+        cargo test
+        cargo build
+        bash ./copy_libs.sh
+        cd ../..
+        dart pub get
+        dart test
