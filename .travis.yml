@@ -1,0 +1,27 @@
+os:
+  - windows
+  - osx
+  - linux
+
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - language: dart
+      dart:
+        - stable
+      script: 
+        - dart pub get
+        - dart test
+        - dart analyze
+
+    - language: rust
+      rust: 
+        - stable
+      before_script:
+        - cd ./tool/clipboard/
+      script:
+        - cargo test
+        - cargo check
