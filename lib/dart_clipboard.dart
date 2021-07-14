@@ -74,7 +74,7 @@ class Clipboard {
     if (Platform.isWindows) {
       libPath += 'clipboard.dll';
     } else if (Platform.isMacOS) {
-      libPath += 'clipboard.dylib';
+      libPath += 'libclipboard.dylib';
     } else if (Platform.isLinux) {
       libPath += 'libclipboard.so';
     } else {
