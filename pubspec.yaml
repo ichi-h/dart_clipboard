@@ -6,9 +6,6 @@ homepage: https://github.com/ippee/dart_clipboard
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
-# dependencies:
-#   path: ^1.8.0
-
 dev_dependencies:
   pedantic: ^1.10.0
 dependencies: 
