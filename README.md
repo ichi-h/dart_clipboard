@@ -1,5 +1,7 @@
 # dart_clipboard
 
+[![Build Status](https://app.travis-ci.com/ippee/dart_clipboard.svg?branch=master)](https://app.travis-ci.com/ippee/dart_clipboard)
+
 A Dart package to operate the clipboard using Rust FFI.
 
 In Rust, I create FFI methods by using [aweinstock314 / rust-clipboard](https://github.com/aweinstock314/rust-clipboard) crate and build them as dynamic libraries.
