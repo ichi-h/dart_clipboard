@@ -1,12 +1,11 @@
-sudo: false
-language: rust, dart
-
-rust: stable
-dart: stable
+lang: rust, dart
 
 branches:
   only:
     - master
+
+rust: stable
+dart: stable
 
 matrix:
   include:
@@ -16,20 +15,30 @@ matrix:
       script: |
         cargo test
         cargo build
-        pwsh ./copy_libs.ps1
+        copy .¥target¥debug¥clipboard.dll ..¥..¥
         cd ../..
         dart pub get
         dart test
 
-    - os:
-      - linux
-      - osx
+    - os: linux
+      before_script:
+        - sudo apt-get install xorg-dev
+        - cd ./tool/clipboard/
+      script: |
+        cargo test
+        cargo build
+        cp ./target/debug/libclipboard.so ../../
+        cd ../..
+        dart pub get
+        dart test
+
+    - os: osx
       before_script:
         - cd ./tool/clipboard/
       script: |
         cargo test
         cargo build
-        bash ./copy_libs.sh
+        cp ./target/debug/libclipboard.dylib ../../
         cd ../..
         dart pub get
         dart test
