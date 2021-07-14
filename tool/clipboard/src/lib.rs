@@ -32,3 +32,24 @@ pub extern "C" fn set_contents(data: *const c_char) {
   let mut ctx: ClipboardContext = ClipboardProvider::new().expect("ClipboardProvider::new failed");
   ctx.set_contents(rstr.to_owned()).expect("ctx.set_contents failed");
 }
+
+#[cfg(test)]
+mod tests {
+  use crate::{get_contents, set_contents};
+  use std::ffi::CStr;
+  use std::ffi::CString;
+
+  #[test]
+fn set_get_clipboard_contents() {
+    let contents = CString::new("All the world's a stage").expect("CString::new failed");
+    let expected_ptr = contents.into_raw();
+
+    set_contents(expected_ptr);
+    let actual_ptr = get_contents();
+
+    let expected = unsafe { CStr::from_ptr(expected_ptr) };
+    let actual = unsafe { CStr::from_ptr(actual_ptr) };
+
+    assert_eq!(actual, expected);
+  }
+}
