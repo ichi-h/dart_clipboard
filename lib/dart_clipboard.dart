@@ -69,14 +69,14 @@ class Clipboard {
   /// If you call [_loadLib] from an unsupported platform, it throws
   /// PlatformException.
   DynamicLibrary _loadLib() {
-    final currentDir = Directory.current.path;
-    var libPath = '$currentDir/lib/clipboard.so';
+    var libPath = '${Directory.current.path}/lib/';
 
-    // This library will support Android and iOS platforms.
-    if (Platform.isMacOS) {
-      libPath = '$currentDir/lib/clipboard.dylib';
-    } else if (Platform.isWindows) {
-      libPath = '$currentDir/lib/clipboard.dll';
+    if (Platform.isWindows) {
+      libPath += 'clipboard.dll';
+    } else if (Platform.isMacOS) {
+      libPath += 'clipboard.dylib';
+    } else if (Platform.isLinux) {
+      libPath += 'clipboard.so';
     } else {
       throw PlatformException('${Platform.operatingSystem} is not supported.');
     }
