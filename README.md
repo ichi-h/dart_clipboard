@@ -12,7 +12,7 @@ This package is like first aid and not a very smart solution. The best way is to
 ### 1. Add package
 
 ```shell
-dart pub get dart_clipboard
+dart pub add dart_clipboard
 ```
 
 ### 2. Prepare dynamic library
