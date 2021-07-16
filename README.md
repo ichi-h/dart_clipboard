@@ -11,18 +11,8 @@ This package is like first aid and not a very smart solution. The best way is to
 
 ### 1. Add package
 
-Add the following to your pubspec.yaml,
-
-```
-dependencies:
-  dart_clipboard:
-    git: git://github.com/ippee/dart_clipboard.git
-```
-
-and run:
-
 ```shell
-dart pub get
+dart pub get dart_clipboard
 ```
 
 ### 2. Prepare dynamic library
