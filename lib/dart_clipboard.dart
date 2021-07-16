@@ -72,7 +72,7 @@ class Clipboard {
     var libPath = '${Directory.current.path}/';
 
     if (Platform.isWindows) {
-      libPath += 'clipboard.dll';
+      libPath += 'libclipboard.dll';
     } else if (Platform.isMacOS) {
       libPath += 'libclipboard.dylib';
     } else if (Platform.isLinux) {
