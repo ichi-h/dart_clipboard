@@ -2,8 +2,7 @@
 
 A Dart package to operate the clipboard using Rust FFI.
 
-_dart_clipboard_ uses the dynamic library of the [ippee / libclipboard](https://github.com/ippee/libclipboard) crate and requires you to download or build it.
-
+_dart_clipboard_ uses the dynamic library of the [ippee / libclipboard](https://github.com/ippee/libclipboard) crate and requires you to download or build it.  
 This crate uses [aweinstock314 / rust-clipboard](https://github.com/aweinstock314/rust-clipboard), but its purpose is not to be wrapper for it. That is to make it easily and intuitively to operate the clipboard in Dart.
 
 This package is like first aid and not a very smart solution. The best way is to do it using low-level APIs in Dart. If such a package is available, I recommend using it.
@@ -62,15 +61,14 @@ Next, build the dynamic library with:
 
 ```shell
 cd ./tool/libclipboard/
-cargo build
+cargo build --release
 ```
 
 Finally, make the symbolic link to the built file,
 
 ```shell
 # on Windows
-cd ../../
-New-Item -Type SymbolicLink ./libclipboard.dll -Value .\tool\libclipboard\target\debug\libclipboard.dll
+./make_symlink.ps1
 
 # on macOS/Linux
 bash ./make_symlink.sh
@@ -80,7 +78,7 @@ or copy the library to the Dart project directory.
 
 ```shell
 # on Windows
-cp ./target/debug/libclipboard.dll ../../
+./copy_lib.ps1
 
 # on macOS/Linux
 bash ./copy_lib.sh
