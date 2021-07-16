@@ -5,7 +5,10 @@
 # Conventional directory for build output.
 build/
 
-# Build files
+# Rust crate
+tool/libclipboard/
+
+# Dynamic library
 *.dll
 *.dylib
 *.so
