@@ -1,3 +1,0 @@
-[submodule "tool/libclipboard"]
-	path = tool/libclipboard
-	url = git@github.com:ippee/libclipboard.git
