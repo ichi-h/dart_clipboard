@@ -1,0 +1,28 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: dart_clipboard
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      - run: curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dll
+      - run: curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dylib
+      - run: curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.so
+      - run: dart pub get
+      - run: dart test
