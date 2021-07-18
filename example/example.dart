@@ -5,14 +5,12 @@
 import 'package:dart_clipboard/dart_clipboard.dart';
 
 void main() {
-  var clipboard = Clipboard();
-
   var contents;
 
   // Get contents of the clipboard.
-  contents = clipboard.getContents();
+  contents = Clipboard.getContents();
 
   // Set contents to the clipboard.
   contents = "All the world's a stage";
-  clipboard.setContents(contents);
+  Clipboard.setContents(contents);
 }

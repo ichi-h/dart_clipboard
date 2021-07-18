@@ -2,10 +2,8 @@
 
 A Dart package to operate the clipboard using Rust FFI.
 
-_dart_clipboard_ uses the dynamic library of the [ippee / libclipboard](https://github.com/ippee/libclipboard) crate and requires you to download or build it.  
-This crate uses [aweinstock314 / rust-clipboard](https://github.com/aweinstock314/rust-clipboard), but its purpose is not to be wrapper for it. That is to make it easily and intuitively to operate the clipboard in Dart.
-
-This package is like first aid and not a very smart solution. The best way is to do it using low-level APIs in Dart. If such a package is available, I recommend using it.
+_dart_clipboard_ uses the dynamic library of [ippee / libclipboard](https://github.com/ippee/libclipboard) crate and requires you to download or build it.  
+This crate uses [aweinstock314 / rust-clipboard](https://github.com/aweinstock314/rust-clipboard), but the purpose of this package is not to be a wrapper for it. That is to make it easily and intuitively to operate the clipboard in Dart.
 
 ## Installation
 
@@ -17,29 +15,24 @@ dart pub add dart_clipboard
 
 ### 2. Prepare dynamic library
 
-#### Pattern A: Use the existing build files
-
-This is an easy way to use this package.  
-However, if you update this library, you will have to go through this process again.
+#### A: Use the existing build files
 
 On your Dart project directory, run the following commands.
 
 ```shell
 # on Windows
-curl -sLJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dll
+curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dll
 
 # on macOS
-curl -sLJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dylib
+curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dylib
 
 # on Linux
-curl -sLJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.so
+curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.so
 ```
 
-When you update the library, change the version number to a newer and run the above command.
+#### B: Use your own built files
 
-#### Pattern B: Use your own built files
-
-This pattern uses Rust, but you can update this easily.  
+This way is available in the environment which can use Rust.
 
 First, add [ippee / libclipboard](https://github.com/ippee/libclipboard) repository as a submodule.
 
@@ -64,7 +57,7 @@ Finally, make the symbolic link to the built file,
 bash ./make_symlink.sh
 ```
 
-or copy the library to the Dart project directory.
+or copy it to the Dart project directory.
 
 ```shell
 # on Windows
@@ -84,17 +77,16 @@ If you publish the Dart application which uses this package, put the dynamic lib
 import 'package:dart_clipboard/dart_clipboard.dart';
 
 void main() {
-  var clipboard = Clipboard();
-
   var contents;
 
   // Get contents of the clipboard.
-  contents = clipboard.getContents();
+  contents = Clipboard.getContents();
 
   // Set contents to the clipboard.
   contents = "All the world's a stage";
-  clipboard.setContents(contents);
+  Clipboard.setContents(contents);
 }
+
 ```
 
 ## License

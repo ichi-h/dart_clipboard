@@ -23,7 +23,7 @@ typedef DartGetContents = Pointer<Utf8> Function();
 /// Get contents of the clipboard.
 ///
 /// ```dart
-/// var contents = clipboard.getContents();
+/// var contents = Clipboard.getContents();
 /// ```
 ///
 /// ### setContents
@@ -32,13 +32,11 @@ typedef DartGetContents = Pointer<Utf8> Function();
 ///
 /// ```dart
 /// var contents = "All the world's a stage";
-/// clipboard.setContents(contents);
+/// Clipboard.setContents(contents);
 /// ```
 class Clipboard {
-  Clipboard();
-
   /// Get clipboard contents as [String].
-  String getContents() {
+  static String getContents() {
     var dl = _loadLib();
 
     DartGetContents get_contents;
@@ -51,7 +49,7 @@ class Clipboard {
   /// Set contents received to the clipboard.
   ///
   /// The type of the argument is [String].
-  void setContents(String contents) {
+  static void setContents(String contents) {
     var dl = _loadLib();
 
     DartSetContents set_contents;
@@ -68,7 +66,7 @@ class Clipboard {
   ///
   /// If you call [_loadLib] from an unsupported platform, it throws
   /// PlatformException.
-  DynamicLibrary _loadLib() {
+  static DynamicLibrary _loadLib() {
     var libPath = '${Directory.current.path}/';
 
     if (Platform.isWindows) {
