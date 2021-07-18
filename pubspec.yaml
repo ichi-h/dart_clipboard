@@ -1,6 +1,6 @@
 name: dart_clipboard
 description: A Dart package to operate the clipboard using Rust FFI. This is intended for use in desktop applications.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/ippee/dart_clipboard
 
 environment:
