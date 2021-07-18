@@ -9,9 +9,16 @@ import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:dart_clipboard/platform_exception.dart';
 
+/// Type of set_contents method on Rust side.
 typedef RustSetContents = Void Function(Pointer<Utf8>);
+
+/// Type of get_contents method on Rust side.
 typedef RustGetContents = Pointer<Utf8> Function();
+
+/// Type of set_contents method on Dart side.
 typedef DartSetContents = void Function(Pointer<Utf8>);
+
+/// Type of get_contents method on Dart side.
 typedef DartGetContents = Pointer<Utf8> Function();
 
 /// Class for operating the clipboard.
