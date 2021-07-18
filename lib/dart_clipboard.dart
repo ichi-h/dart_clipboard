@@ -14,27 +14,27 @@ typedef RustGetContents = Pointer<Utf8> Function();
 typedef DartSetContents = void Function(Pointer<Utf8>);
 typedef DartGetContents = Pointer<Utf8> Function();
 
+/// Class for operating the clipboard.
+///
+/// ## How to use
+///
+/// ### getContents
+///
+/// Get contents of the clipboard.
+///
+/// ```dart
+/// var contents = clipboard.getContents();
+/// ```
+///
+/// ### setContents
+///
+/// Set contents to the clipboard.
+///
+/// ```dart
+/// var contents = "All the world's a stage";
+/// clipboard.setContents(contents);
+/// ```
 class Clipboard {
-  /// Class for operating the clipboard.
-  ///
-  /// ## How to use
-  ///
-  /// ### getContents
-  ///
-  /// Get contents of the clipboard.
-  ///
-  /// ```dart
-  /// var contents = clipboard.getContents();
-  /// ```
-  ///
-  /// ### setContents
-  ///
-  /// Set contents to the clipboard.
-  ///
-  /// ```dart
-  /// var contents = "All the world's a stage";
-  /// clipboard.setContents(contents);
-  /// ```
   Clipboard();
 
   /// Get clipboard contents as [String].
