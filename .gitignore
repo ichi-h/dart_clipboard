@@ -13,5 +13,6 @@ tool/libclipboard/
 *.dylib
 *.so
 
-# Test build file
+# Test build files
 dart_clipboard_test
+dart_clipboard_test.exe
