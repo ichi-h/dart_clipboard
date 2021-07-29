@@ -3,7 +3,7 @@
 A Dart package to operate the clipboard using Rust FFI.
 
 _dart_clipboard_ uses the dynamic library of [ippee / libclipboard](https://github.com/ippee/libclipboard) crate and requires you to download or build it.  
-This crate uses [aweinstock314 / rust-clipboard](https://github.com/aweinstock314/rust-clipboard), but the purpose of this package is not to be a wrapper for it. That is to make it easily and intuitively to operate the clipboard in Dart.
+This crate uses [aweinstock314 / rust-clipboard](https://github.com/aweinstock314/rust-clipboard). However, the purpose of this package is not to be a wrapper for it, but to make it easily and intuitively to operate the clipboard in Dart.
 
 ## Installation
 
@@ -14,6 +14,8 @@ dart pub add dart_clipboard
 ```
 
 ### 2. Prepare dynamic library
+
+Select either method A or B.
 
 #### A: Use the existing build files
 
