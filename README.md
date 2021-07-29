@@ -23,13 +23,13 @@ On your Dart project directory, run the following commands.
 
 ```shell
 # on Windows
-curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dll
+curl -LJO https://github.com/ippee/libclipboard/releases/download/0.2.0/libclipboard.dll
 
 # on macOS
-curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.dylib
+curl -LJO https://github.com/ippee/libclipboard/releases/download/0.2.0/libclipboard.dylib
 
 # on Linux
-curl -LJO https://github.com/ippee/libclipboard/releases/download/0.1.0/libclipboard.so
+curl -LJO https://github.com/ippee/libclipboard/releases/download/0.2.0/libclipboard.so
 ```
 
 #### B: Use your own built files
