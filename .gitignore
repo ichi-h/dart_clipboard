@@ -12,3 +12,6 @@ tool/libclipboard/
 *.dll
 *.dylib
 *.so
+
+# Test build file
+dart_clipboard_test
