@@ -5,4 +5,3 @@
 library dart_clipboard;
 
 export 'src/clipboard.dart';
-export 'src/platform_exception.dart';

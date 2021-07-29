@@ -8,8 +8,6 @@ import 'dart:io';
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 
-import 'platform_exception.dart';
-
 /// Type of set_contents method on Rust side.
 typedef RustSetContents = Void Function(Pointer<Utf8>);
 
@@ -85,7 +83,7 @@ class Clipboard {
     } else if (Platform.isLinux) {
       libPath += 'libclipboard.so';
     } else {
-      throw PlatformException('${Platform.operatingSystem} is not supported.');
+      throw OSError('${Platform.operatingSystem} is not supported.');
     }
 
     return DynamicLibrary.open(libPath);
